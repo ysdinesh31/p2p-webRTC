@@ -11,6 +11,7 @@ export const SocketProvider = (props) => {
   const socket = useMemo(() => {
     return io("http://localhost:3001");
   }, []);
+
   return (
     <SocketContext.Provider value={{ socket }}>
       {props.children}

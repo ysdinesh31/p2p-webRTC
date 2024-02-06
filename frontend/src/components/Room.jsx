@@ -1,3 +1,10 @@
+import { useEffect } from "react";
+import { useSocket } from "../providers/socket";
+
 export const Room = () => {
-  return <div>Room</div>;
+  const { socket } = useSocket();
+  useEffect(() => {
+    socket.on("joined-room");
+  });
+  return <div className="room-container">Room</div>;
 };
