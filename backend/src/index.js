@@ -20,6 +20,7 @@ io.on("connection", (socket) => {
     const { name, roomId } = data;
     socket.join(roomId);
     socket.emit("joined-room", { roomId });
+    socket.broadcast.to(roomId).emit("user-entered", name);
     console.log("a user connected", data);
   });
 });

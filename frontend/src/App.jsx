@@ -3,7 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Landing } from "./components/Landing";
 import { Room } from "./components/Room";
-import { SocketProvider, PeerProvider } from "./providers/socket";
+import { SocketProvider } from "./providers/socket";
+import { PeerProvider } from "./providers/peer";
 
 function App() {
   return (
