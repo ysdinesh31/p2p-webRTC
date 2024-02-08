@@ -11,18 +11,19 @@ export const Landing = () => {
 
   useEffect(() => {
     socket.on("joined-room", handleRoomJoined);
+    return () => {
+      socket.off("joined-room", handleRoomJoined);
+    };
   }, [socket]);
 
   const handleJoinRoom = () => {
     console.log("here", socket);
     if (socket) {
-      debugger;
       socket.emit("join-room", { name: name, roomId: room });
     }
   };
 
   const handleRoomJoined = ({ roomId }) => {
-    debugger;
     console.log(roomId);
     navigate(`/room/${roomId}`);
   };
